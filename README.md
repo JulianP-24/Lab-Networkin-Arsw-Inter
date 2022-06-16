@@ -53,7 +53,7 @@ Para devolver una imagen, se ingresa a la siguiente ruta
 ```
 Como resultado se obtiene la imagen:
 
-![]("img/img1.png")
+![](img/img1.png)
 
 Para devolver una archivo js, se ingresa a la siguiente ruta
 
@@ -62,7 +62,7 @@ Para devolver una archivo js, se ingresa a la siguiente ruta
 ```
 Como resultado se obtiene la imagen:
 
-![]("img/img2.png")
+![](img/img2.png)
 
 Para devolver una archivo css, se ingresa a la siguiente ruta
 
@@ -71,7 +71,7 @@ Para devolver una archivo css, se ingresa a la siguiente ruta
 ```
 Como resultado se obtiene la imagen:
 
-![]("img/img3.png")
+![](img/img3.png)
 
 Para devolver una archivo html, se ingresa a la siguiente ruta
 
@@ -80,8 +80,8 @@ Para devolver una archivo html, se ingresa a la siguiente ruta
 ```
 Como resultado se obtiene la imagen:
 
-![]("img/img4.png")
+![](img/img4.png)
 
 ## Diagrama de Clases
 
-![]("img/valorant.jpg")
+![](img/valorant.jpg)
