@@ -40,7 +40,23 @@ public class FilesReader {
         }
     }
 
-    public  void js(String element, OutputStream outputStream) throws IOException {
+    public void js(String element, OutputStream outputStream) throws IOException {
+        try {
+            BufferedReader read = new BufferedReader(new FileReader(System.getProperty("user.dir") + element));
+            String cont = "";
+            String line;
+            while ((line = read.readLine()) != null) {
+                cont = cont + line;
+            }
+            outputStream.write(("HTTP/1.1 404 Not Found \r\n"
+                    + "Content-Type: text/html; charset=\"utf-8\" \r\n"
+                    + "\r\n"
+                    + cont).getBytes());
+        } catch (IOException e) {
+        }
+    }
+    
+    public void css(String element, OutputStream outputStream) throws IOException {
         try {
             BufferedReader read = new BufferedReader(new FileReader(System.getProperty("user.dir") + element));
             String cont = "";

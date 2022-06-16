@@ -28,17 +28,20 @@ public class httpServerBrowser {
         }
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String inputLine, outputLine;
+        String inputLine;
+        String path = "";
         while ((inputLine = in.readLine()) != null) {
             if (inputLine.contains("GET")) {
-                String[] listaURL = inputLine.split("/");
-                String[] get = listaURL[1].split(" ");
-                if (get[0].contains(".jpg")) {
-                    fileReader.img("/src/main/resources/" + get[0], clientSocket.getOutputStream());
-                } else if (get[0].contains(".html")) {
-                    fileReader.html("/src/main/resources/" + get[0], clientSocket.getOutputStream());
-                } else if (get[0].contains(".js")) {
-                    fileReader.js("/src/main/resources/" + get[0], clientSocket.getOutputStream());
+                path = inputLine.split("/")[1];
+                path = path.split(" ")[0];
+                if (path.contains(".jpg")) {
+                    fileReader.img("/src/main/resources/" + path, clientSocket.getOutputStream());
+                } else if (path.contains(".html")) {
+                    fileReader.html("/src/main/resources/" + path, clientSocket.getOutputStream());
+                } else if (path.contains(".js")) {
+                    fileReader.js("/src/main/resources/" + path, clientSocket.getOutputStream());
+                } else if (path.contains(".css")) {
+                    fileReader.css("/src/main/resources/" + path, clientSocket.getOutputStream());
                 }
                 
             }
