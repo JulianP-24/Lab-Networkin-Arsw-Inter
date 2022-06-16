@@ -84,4 +84,4 @@ Como resultado se obtiene la imagen:
 
 ## Diagrama de Clases
 
-![]("resources/valorant.jpg")
+![]("img/valorant.jpg")
