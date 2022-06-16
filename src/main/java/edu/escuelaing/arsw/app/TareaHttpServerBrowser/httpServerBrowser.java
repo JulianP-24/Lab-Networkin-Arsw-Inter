@@ -16,41 +16,46 @@ public class httpServerBrowser {
         try {
             serverSocket = new ServerSocket(35001);
         } catch (IOException e) {
-            System.err.println("Could not listen on port: 35000.");
+            System.err.println("Could not listen on port: 35001.");
             System.exit(1);
         }
-        Socket clientSocket = null;
-        try {
-            clientSocket = serverSocket.accept();
-        } catch (IOException e) {
-            System.err.println("Accept failed.");
-            System.exit(1);
-        }
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String inputLine;
-        String path = "";
-        while ((inputLine = in.readLine()) != null) {
-            if (inputLine.contains("GET")) {
-                path = inputLine.split("/")[1];
-                path = path.split(" ")[0];
-                if (path.contains(".jpg")) {
-                    fileReader.img("/src/main/resources/" + path, clientSocket.getOutputStream());
-                } else if (path.contains(".html")) {
-                    fileReader.html("/src/main/resources/" + path, clientSocket.getOutputStream());
-                } else if (path.contains(".js")) {
-                    fileReader.js("/src/main/resources/" + path, clientSocket.getOutputStream());
-                } else if (path.contains(".css")) {
-                    fileReader.css("/src/main/resources/" + path, clientSocket.getOutputStream());
-                }
-                
+        boolean running = true;
+        while (running) {
+            Socket clientSocket = null;
+            try {
+                System.out.println("Listo para recibir ...");
+                clientSocket = serverSocket.accept();
+            } catch (IOException e) {
+                System.err.println("Accept failed.");
+                System.exit(1);
             }
-            
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            String inputLine;
+            String path = "";
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.contains("GET")) {
+                    path = inputLine.split("/")[1];
+                    path = path.split(" ")[0];
+                    System.out.println(path);
+                    if (path.contains(".jpg")) {
+                        fileReader.img("/src/main/resources/" + path, clientSocket.getOutputStream());
+                    } else if (path.contains(".html")) {
+                        fileReader.html("/src/main/resources/" + path, clientSocket.getOutputStream());
+                    } else if (path.contains(".js")) {
+                        fileReader.js("/src/main/resources/" + path, clientSocket.getOutputStream());
+                    } else if (path.contains(".css")) {
+                        fileReader.css("/src/main/resources/" + path, clientSocket.getOutputStream());
+                    }
+
+                }
+
+            }
+
+            out.close();
+            in.close();
+            clientSocket.close();
         }
-        
-        out.close();
-        in.close();
-        clientSocket.close();
         serverSocket.close();
     }
 }
