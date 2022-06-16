@@ -5,11 +5,19 @@ import java.net.*;
 import java.io.*;
 import javax.imageio.ImageIO;
 
+/*
+ * Clase que devuelve el archivo correspondiente segun la extension
+ */
 public class FilesReader {
     public FilesReader() {
     }
     
-    public  void img(String element, OutputStream clientOutput) throws IOException {
+    /*
+     * Metodo que devuelve una imagen
+     * 
+     * @param El elemento que es la ruta de la imagen y la respuesta que es un OutputStream
+     */
+    public void img(String element, OutputStream clientOutput) throws IOException {
         try {
             BufferedImage image = ImageIO.read(new File(System.getProperty("user.dir") + element));
             ByteArrayOutputStream ArrBytes = new ByteArrayOutputStream();
@@ -24,7 +32,13 @@ public class FilesReader {
         }
     }
 
-    public  void html(String element, OutputStream outputStream) throws IOException {
+    /*
+     * Metodo que devuelve un archivo html
+     * 
+     * @param El elemento que es la ruta del archivo html y la respuesta que es un
+     * OutputStream
+     */
+    public void html(String element, OutputStream outputStream) throws IOException {
         try {
             BufferedReader read = new BufferedReader(new FileReader(System.getProperty("user.dir") + element));
             String cont = "";
@@ -40,6 +54,12 @@ public class FilesReader {
         }
     }
 
+    /*
+     * Metodo que devuelve un archivo javascript
+     * 
+     * @param El elemento que es la ruta del archivo javascript y la respuesta que es un
+     * OutputStream
+     */
     public void js(String element, OutputStream outputStream) throws IOException {
         try {
             BufferedReader read = new BufferedReader(new FileReader(System.getProperty("user.dir") + element));
@@ -56,6 +76,12 @@ public class FilesReader {
         }
     }
     
+    /*
+     * Metodo que devuelve un archivo de estilos css
+     * 
+     * @param El elemento que es la ruta del archivo de estilos css y la respuesta que es un
+     * OutputStream
+     */
     public void css(String element, OutputStream outputStream) throws IOException {
         try {
             BufferedReader read = new BufferedReader(new FileReader(System.getProperty("user.dir") + element));

@@ -9,6 +9,9 @@ import java.net.Socket;
 
 import edu.escuelaing.arsw.app.TareaHttpServerBrowser.Reader.FilesReader;
 
+/* 
+* Clase de la implementacion del HttpServer
+*/
 public class httpServerBrowser {
     public static FilesReader fileReader = new FilesReader();
     public static void main(String[] args) throws IOException {
