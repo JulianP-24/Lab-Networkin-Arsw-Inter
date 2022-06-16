@@ -83,5 +83,8 @@ Como resultado se obtiene la imagen:
 ![](img/img4.png)
 
 ## Diagrama de Clases
+A continuacion se presenta el diagrama de clases de la arquitectura para la tarea propuesta
 
-![](img/valorant.jpg)
+![](img/diagramaClases.png)
+
+Como se puede observar la arquitectura se encuentra dentro de tres paquetes, el primero de ellos es el paquete con nombre app, el cual es el principal y en donde estan contenidos los otros dos, el segundo paquete es el que tiene como nombre TareaHttpServerBrowser, el cual tiene la clase principal y otro paquete de nombre Reader. En la clase principal se tiene el metodo main , que es donde esta la implementacion del servidor y en donde verifica la extension del archivo que le llega al path, una vez verificado llama a uno de los metodos de la clase que esta en el paquete Reader para obtener el resultado correcto.
