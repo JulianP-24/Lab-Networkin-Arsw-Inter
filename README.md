@@ -81,3 +81,7 @@ Para devolver una archivo html, se ingresa a la siguiente ruta
 Como resultado se obtiene la imagen:
 
 ![]("img/img4.png")
+
+## Diagrama de Clases
+
+![]("img/img5.png")
